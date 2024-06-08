@@ -30,5 +30,14 @@ pipeline {
                 deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://18.60.237.172:8082/manager/html')], contextPath: null, war: '**/*.war'
             }
         }
+        stage ("docker-tag"){
+            steps {
+                script{
+                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
+                        sh "docker build -t gopiadi/tom ."
+                    }
+                }
+            }
+        }
     }
 }
