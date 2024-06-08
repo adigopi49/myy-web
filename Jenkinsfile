@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage ("clone"){
             steps {
-                git 'https://github.com/adigopi49/myy-web.git'
+                git branch: 'main', url: 'https://github.com/adigopi49/vprofile-project.git'
             }
         }
         stage("build"){
