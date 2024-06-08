@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage ("clone"){
             steps {
-                sh "echo 'hi'"
+                git 'https://github.com/adigopi49/myy-web.git'
             }
         }
     }
