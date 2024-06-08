@@ -15,5 +15,10 @@ pipeline {
                 sh "mvn clean package"
             }
         }
+        stage("code analysis"){
+            steps {
+                sh "mvn sonar:sonar"
+            }
+        }
     }
 }
