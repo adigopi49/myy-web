@@ -20,5 +20,10 @@ pipeline {
                 sh "mvn sonar:sonar"
             }
         }
+        stage("nexua-upload"){
+            steps{
+                sh "mvn deploy"
+            }
+        }
     }
 }
