@@ -7,7 +7,12 @@ pipeline {
     stages {
         stage ("clone"){
             steps {
-                git 'https://github.com/adigopi49/myy-web.git'
+                sh "echo 'hi'"
+            }
+        }
+        stage("build"){
+            steps{
+                sh "mvn clean package"
             }
         }
     }
