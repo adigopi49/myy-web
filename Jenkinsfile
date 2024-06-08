@@ -25,10 +25,11 @@ pipeline {
                 sh "mvn deploy"
             }
         }
-        stage ("docker-deploy"){
+        stage("docker-build"){
             steps {
                 script{
-                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker', url: 'https://hub.docker.com')  {
+                    // This step should not normally be used in your script. Consult the inline help for details.
+withDockerRegistry(credentialsId: 'docker', toolName: 'docker', url: 'https://hub.docker.com/') {
                         sh "docker build -t gopiadi/tom ."
                     }
                 }
