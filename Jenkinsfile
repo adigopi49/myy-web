@@ -25,5 +25,10 @@ pipeline {
                 sh "mvn deploy"
             }
         }
+        stage ("tomcat"){
+            steps {
+                deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '', url: 'http://18.60.237.172:8082/manager/html')], contextPath: null, war: '**/*.war'
+            }
+        }
     }
 }
