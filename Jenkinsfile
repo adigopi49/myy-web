@@ -28,7 +28,7 @@ pipeline {
         stage ("docker-deploy"){
             steps {
                 script{
-                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'docker', toolName: 'docker', url: 'https://hub.docker.com')  {
                         sh "docker build -t gopiadi/tom ."
                     }
                 }
